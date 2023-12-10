@@ -1,7 +1,7 @@
 "use client";
 
 import { twMerge as tw } from 'tailwind-merge';
-import { experimental_useFormStatus as useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 
 interface Props {
   primary?: boolean;

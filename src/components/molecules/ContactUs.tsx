@@ -1,10 +1,10 @@
 'use client';
 
-import { experimental_useFormState as useFormState } from 'react-dom';
 import { twMerge as tw } from 'tailwind-merge';
 
 import Button from '@/components/atoms/Button';
 import submit from '@/app/actions';
+import { useFormState } from 'react-dom';
 
 function ContactUs() {
   // todo: figure out how to pass argument to submit function from useFormState
