@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { twMerge as tw } from 'tailwind-merge';
 import { useState } from 'react';
@@ -53,8 +53,8 @@ const secondaryLinks = [
 
 const MenuButton = ({ toggleMenu, showMenu }: MenuButton) => (
   <button
-    type="button"
-    aria-controls="mobile-menu"
+    type='button'
+    aria-controls='mobile-menu'
     aria-expanded={showMenu}
     onClick={toggleMenu}
     className={tw(`p-2 text-gray-400`)}
@@ -63,28 +63,38 @@ const MenuButton = ({ toggleMenu, showMenu }: MenuButton) => (
     {showMenu ? (
       <svg
         className={tw(`h-6 w-6`)}
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        aria-hidden="true"
+        xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke='currentColor'
+        aria-hidden='true'
         width={24}
         height={24}
       >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        <path
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth={2}
+          d='M6 18L18 6M6 6l12 12'
+        />
       </svg>
     ) : (
       <svg
         className={tw(`h-6 w-6`)}
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        aria-hidden="true"
+        xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke='currentColor'
+        aria-hidden='true'
         width={24}
         height={24}
       >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        <path
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth={2}
+          d='M4 6h16M4 12h16M4 18h16'
+        />
       </svg>
     )}
   </button>
@@ -94,7 +104,11 @@ const MobileMenu = () => (
   <div className={tw(`md:hidden`)}>
     <div className={tw(`px-2 pt-2 pb-3 space-y-1 sm:px-3`)}>
       {links.map((link: Link) => (
-        <a href={link.href} className={tw(`text-gray-500 block px-3 py-2 text-base font-medium`)} key={link.label}>
+        <a
+          href={link.href}
+          className={tw(`text-gray-500 block px-3 py-2 text-base font-medium`)}
+          key={link.label}
+        >
           {link.label}
         </a>
       ))}
@@ -105,7 +119,9 @@ const MobileMenu = () => (
           <a
             key={`mobile-${link.label}`}
             href={link.href}
-            className={tw(`block px-3 py-2 text-base font-medium text-gray-500`)}
+            className={tw(
+              `block px-3 py-2 text-base font-medium text-gray-500`
+            )}
           >
             {link.label}
           </a>
@@ -124,13 +140,8 @@ const Navigation = () => {
       <div className={tw(`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`)}>
         <div className={tw(`flex items-center justify-between h-24`)}>
           <div className={tw(`flex items-center`)}>
-            <div className={tw(`flex-shrink-0`)}>
-              <Image
-                src="/images/digitron-square-blue.jpg"
-                alt="logo"
-                width={48}
-                height={48}
-              />
+            <div className={tw(`flex items-center w-full`)}>
+              <p className={tw(`text-4xl text-indigo-500 font-bold`)}>NERD</p>
             </div>
             <div className={tw(`hidden md:block`)}>
               <div className={tw(`ml-10 flex items-baseline space-x-4`)}>
@@ -138,7 +149,9 @@ const Navigation = () => {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className={tw(`text-gray-500 hover:text-gray-600 px-3 py-2 rounded-md font-medium`)}
+                    className={tw(
+                      `text-gray-500 hover:text-gray-600 px-3 py-2 rounded-md font-medium`
+                    )}
                   >
                     {link.label}
                   </Link>
@@ -148,7 +161,9 @@ const Navigation = () => {
           </div>
           <div className={tw(`hidden md:block`)}>
             <div className={tw(`ml-4 flex items-center md:ml-6`)}>
-              <Button primary modifier="border-0 mr-2">Contáctanos</Button>
+              <Button primary modifier='border-0 mr-2'>
+                Contáctanos
+              </Button>
             </div>
           </div>
           <div className={tw(`-mr-2 flex md:hidden`)}>
@@ -160,6 +175,5 @@ const Navigation = () => {
     </nav>
   );
 };
-
 
 export default Navigation;
