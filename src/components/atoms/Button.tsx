@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
 import { twMerge as tw } from 'tailwind-merge';
 import { useFormStatus } from 'react-dom';
+import Link from 'next/link';
 
-interface Props {
+type Props = {
   primary?: boolean;
   children: React.ReactNode;
   modifier?: string;
@@ -11,7 +12,42 @@ interface Props {
   onClick?: () => void;
   pendingMessage?: string;
   disabled?: boolean;
-}
+  link?: string;
+};
+
+type BaseButtonProps = {
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: () => void;
+  className?: string;
+  disabled?: boolean;
+  children: React.ReactNode;
+  baseStyle?: string;
+  styles?: string;
+  modifier?: string;
+};
+
+// todo: move to its own Atom?
+const BaseButton = ({
+  type = 'button',
+  onClick,
+  className,
+  disabled = false,
+  children,
+  baseStyle,
+  styles,
+  modifier,
+  ...rest
+}: BaseButtonProps) => (
+  <button
+    type={type}
+    onClick={onClick}
+    className={tw(baseStyle, styles, modifier, className)}
+    disabled={disabled}
+    {...rest}
+  >
+    {children}
+  </button>
+);
 
 const Button = ({
   primary,
@@ -21,26 +57,42 @@ const Button = ({
   onClick,
   pendingMessage = `Loading...`,
   disabled = false,
+  link,
   ...rest
 }: Props) => {
   // pending should be enabled in the child component that invokes the server action
   const { pending } = useFormStatus();
-  
   const baseStyle = `font-sans font-medium py-2 px-4 border rounded`;
   const styles = primary
     ? `bg-indigo-600 text-white border-indigo-500 hover:bg-indigo-700`
     : `bg-white text-gray-600 border-gray-300 hover:bg-gray-100`;
 
+  if (link) {
+    return (
+      <Link href={link}>
+        <BaseButton
+          type={type}
+          onClick={onClick}
+          className={tw(baseStyle, styles, modifier)}
+          disabled={disabled}
+          {...rest}
+        >
+          {children}
+        </BaseButton>
+      </Link>
+    );
+  }
+
   return (
-    <button
+    <BaseButton
       type={type}
       onClick={onClick}
-      className={tw(`${baseStyle} ${styles} ${modifier ?? ``}`)}
-      disabled={pending || disabled}
+      className={tw(baseStyle, styles, modifier)}
+      disabled={disabled}
       {...rest}
     >
       {pending ? pendingMessage : children}
-    </button>
+    </BaseButton>
   );
 };
 
