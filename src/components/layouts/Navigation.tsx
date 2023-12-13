@@ -2,7 +2,6 @@
 
 import { twMerge as tw } from 'tailwind-merge';
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import Button from '@/components/atoms/Button';
@@ -104,27 +103,25 @@ const MobileMenu = () => (
   <div className={tw(`md:hidden`)}>
     <div className={tw(`px-2 pt-2 pb-3 space-y-1 sm:px-3`)}>
       {links.map((link: Link) => (
-        <a
-          href={link.href}
-          className={tw(`text-gray-500 block px-3 py-2 text-base font-medium`)}
-          key={link.label}
+        <Button
+          key={`mobile-${link.label}`}
+          link={link.href}
+          modifier='border-0'
         >
           {link.label}
-        </a>
+        </Button>
       ))}
     </div>
     <div className={tw(`pt-4 pb-3 border-t border-gray-400`)}>
       <div className={tw(`px-2 space-y-1`)}>
         {secondaryLinks.map((link: Link) => (
-          <a
+          <Button
             key={`mobile-${link.label}`}
-            href={link.href}
-            className={tw(
-              `block px-3 py-2 text-base font-medium text-gray-500`
-            )}
+            link={link.href}
+            modifier='border-0'
           >
             {link.label}
-          </a>
+          </Button>
         ))}
       </div>
     </div>
@@ -141,7 +138,9 @@ const Navigation = () => {
         <div className={tw(`flex items-center justify-between h-24`)}>
           <div className={tw(`flex items-center`)}>
             <div className={tw(`flex items-center w-full`)}>
-              <p className={tw(`text-4xl text-indigo-500 font-bold`)}>NERD</p>
+              <Link href='/'>
+                <p className={tw(`text-4xl text-indigo-500 font-bold`)}>NERD</p>
+              </Link>
             </div>
             <div className={tw(`hidden md:block`)}>
               <div className={tw(`ml-10 flex items-baseline space-x-4`)}>
@@ -161,7 +160,7 @@ const Navigation = () => {
           </div>
           <div className={tw(`hidden md:block`)}>
             <div className={tw(`ml-4 flex items-center md:ml-6`)}>
-              <Button primary modifier='border-0 mr-2'>
+              <Button primary link='/contacto' modifier='border-0 mr-2'>
                 Contáctanos
               </Button>
             </div>

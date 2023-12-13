@@ -47,7 +47,7 @@ const HeroSection = () => (
       <div
         className={tw(`mt-10 flex justify-center items-center w-full mx-auto`)}
       >
-        <Button primary>Contáctanos</Button>
+        <Button link='/contacto' primary>Contáctanos</Button>
       </div>
     </div>
     <div className={tw(`flex justify-center w-full`)}>
