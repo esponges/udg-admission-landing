@@ -9,7 +9,7 @@ export async function submit(
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
-        message: 'Selected: ' + select,
+        message: 'Sucessful action with data: ' + select,
       });
     }, 2000);
   });

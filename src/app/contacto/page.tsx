@@ -6,13 +6,24 @@ import { twMerge as tw } from 'tailwind-merge';
 import { submit } from '../actions/contact-us';
 import Button from '@/components/atoms/Button';
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation'
 
 type State = { message: string };
 
 export default function Contact() {
+  const router = useRouter();
   const [formStatus, formAction] = useFormState<State, FormData>(submit, {
     message: '',
   });
+
+  // redirect out if formStatus message not empty
+  useEffect(() => {
+    if (!!formStatus?.message) {
+      setTimeout(() => {
+        router.push('/');
+      }, 2000);
+    }
+  }, [formStatus?.message]);
 
   return (
     <main>
