@@ -7,8 +7,10 @@ import { submit } from '../actions/contact-us';
 import Button from '@/components/atoms/Button';
 import { useEffect } from 'react';
 
+type State = { message: string };
+
 export default function Contact() {
-  const [formStatus, formAction] = useFormState(submit, {
+  const [formStatus, formAction] = useFormState<State, FormData>(submit, {
     message: '',
   });
 
