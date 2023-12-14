@@ -1,27 +1,45 @@
+'use client';
+
 import { Select } from '@/components/molecules/Select';
+import { useFormState } from 'react-dom';
 import { twMerge as tw } from 'tailwind-merge';
+import { submit } from '../actions/contact-us';
+import Button from '@/components/atoms/Button';
+import { useEffect } from 'react';
 
 export default function Contact() {
+  const [formStatus, formAction] = useFormState(submit, {
+    message: '',
+  });
+
   return (
     <main>
-      <section className={tw(`bg-white pb-6`)}>
-        <div className={tw(`max-w-7xl mx-auto p-4 sm:p-6 lg:p-8`)}>
-          <div className={tw(`container mx-auto px-6 p-6 bg-white`)}>
-            <div className={tw(`mb-16 text-center`)}>
-              <Select
-                options={[
-                  { label: 'Option 1', value: 'option1' },
-                  { label: 'Option 2', value: 'option2' },
-                  { label: 'Option 3', value: 'option3' },
-                ]}
-                label='Select an option'
-                name='option'
-                // onChange={console.log}
-              />
+      <form action={formAction}>
+        <section className={tw(`bg-white pb-6`)}>
+          <div className={tw(`mx-auto p-4 sm:p-6 lg:p-8`)}>
+            <div className={tw(`container mx-auto px-6 p-6 bg-white`)}>
+              <div className={tw(`mb-16 text-center`)}>
+                {/* show formStatus message */}
+                <p className={tw(`text-black font-semibold leading-none`)}>{formStatus?.message}</p>
+                <Select
+                  options={[
+                    { label: 'Option 1', value: 'option1' },
+                    { label: 'Option 2', value: 'option2' },
+                    { label: 'Option 3', value: 'option3' },
+                  ]}
+                  label='Select an option'
+                  name='option'
+                  // onChange={console.log}
+                />
+              </div>
+              {/* submit btn */}
+              <Button type='submit' pendingMessage='Enviando...'>
+                Contáctanos
+              </Button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </form>
     </main>
   );
 }
