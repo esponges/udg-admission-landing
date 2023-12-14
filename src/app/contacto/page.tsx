@@ -47,11 +47,12 @@ export default function Contact() {
                 <Select
                   options={[
                     { label: 'Menos de $100', value: 'lessThan100' },
-                    { label: 'Entre $100 y $500', value: 'between100and500' },
-                    { label: 'Más de $500', value: 'moreThan500' },
+                    { label: 'Entre $100 y $200', value: 'between100and200' },
+                    { label: 'Más de $200', value: 'moreThan200' },
                   ]}
                   label='¿Cuánto pagarías?'
                   name='howMuch'
+                  defaultValue='between100and200'
                 />
               </div>
               <Button type='submit' pendingMessage='Enviando...'>
