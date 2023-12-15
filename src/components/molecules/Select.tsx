@@ -33,6 +33,7 @@ export function Select({ options, label, name, defaultValue, onChange }: SelectP
           `border border-gray-300 bg-gray-100 min-w-0 w-full rounded text-gray-800 py-2 px-3 mr-2`
         )}
       >
+        <option value="" disabled selected>{'Elige una opción...'}</option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
