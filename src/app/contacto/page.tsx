@@ -18,9 +18,16 @@ export default function Contact() {
   const [formValues, setFormValues] = useState<{
     wouldPay: string;
     howMuch: string;
+    whyNot: string;
+    error?: {
+      wouldPay: boolean;
+      howMuch: boolean;
+      whyNot: boolean;
+    }
   }>({
-    wouldPay: 'yes',
+    wouldPay: '',
     howMuch: '',
+    whyNot: '',
   });
 
   // redirect out if formStatus message not empty
@@ -65,7 +72,8 @@ export default function Contact() {
                     label='¿Cuánto pagarías?'
                     name='howMuch'
                   />
-                ) : (
+                ) : null}
+                {formValues.wouldPay === 'no' ? (
                   <Select
                     options={[
                       { label: 'No me interesa', value: 'notInterested' },
@@ -77,9 +85,37 @@ export default function Contact() {
                     ]}
                     label='¿Por qué no?'
                     name='whyNot'
+                    onChange={(e) => {
+                      setFormValues({
+                        ...formValues,
+                        whyNot: e.target.value,
+                      });
+                    }}
                   />
-                )}
-                <Button type='submit' pendingMessage='Enviando...' modifier='mt-10' primary>
+                ) : null}
+                {formValues.whyNot === 'other' && formValues.wouldPay === 'no' ? (
+                  <div className='flex flex-col w-full'>
+                    <label
+                      htmlFor='whyNotOther'
+                      className={tw(`text-sm font-medium text-gray-700 my-5`)}
+                    >
+                      Cuéntanos (opcional)
+                    </label>
+                    <textarea
+                      name='whyNotOther'
+                      placeholder='Breve explicación de por qué no'
+                      className={tw(
+                        `border border-gray-300 bg-gray-100 min-w-0 w-full rounded text-gray-800 py-2 px-3 mr-2`
+                      )}
+                    />
+                  </div>
+                ) : null}
+                <Button
+                  type='submit'
+                  pendingMessage='Enviando...'
+                  modifier='mt-10'
+                  primary
+                >
                   Enviar
                 </Button>
               </div>
