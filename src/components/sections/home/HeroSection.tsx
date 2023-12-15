@@ -1,5 +1,5 @@
 import { twMerge as tw } from 'tailwind-merge';
-import Button from '@/components/atoms/Button';
+import { Button } from '@/components/atoms/Button';
 import Image from 'next/image';
 
 const CUSTOMERS = [
@@ -47,7 +47,9 @@ const HeroSection = () => (
       <div
         className={tw(`mt-10 flex justify-center items-center w-full mx-auto`)}
       >
-        <Button link='/contacto' primary>Contáctanos</Button>
+        <Button link='/contacto' primary>
+          Contáctanos
+        </Button>
       </div>
     </div>
     <div className={tw(`flex justify-center w-full`)}>

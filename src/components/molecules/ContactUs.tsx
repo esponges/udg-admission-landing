@@ -2,7 +2,7 @@
 
 import { twMerge as tw } from 'tailwind-merge';
 
-import Button from '@/components/atoms/Button';
+import { Button } from '@/components/atoms/Button';
 import submit from '@/app/actions';
 import { useFormState } from 'react-dom';
 
@@ -19,10 +19,7 @@ function ContactUs() {
         <h4 className={tw(`font-mono text-sm uppercase text-gray-500 mb-3`)}>
           Dudas? Escríbenos
         </h4>
-        <form
-          className={tw(`flex w-full`)}
-          action={formAction}
-        >
+        <form className={tw(`flex w-full`)} action={formAction}>
           <input
             aria-label='email address'
             value='foo'
@@ -34,9 +31,16 @@ function ContactUs() {
             readOnly
             placeholder='Enter your email'
           />
-          <Button type='submit' pendingMessage='Enviando...'>Contáctanos</Button>
+          <Button type='submit' pendingMessage='Enviando...'>
+            Contáctanos
+          </Button>
         </form>
-        <p className={tw(`text-sm text-blue-500 mt-2`, formStatus.error && "text-red-500")}>
+        <p
+          className={tw(
+            `text-sm text-blue-500 mt-2`,
+            formStatus.error && 'text-red-500'
+          )}
+        >
           {formStatus.message || formStatus.error}
         </p>
       </div>

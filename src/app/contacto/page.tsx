@@ -4,7 +4,7 @@ import { Select } from '@/components/molecules/Select';
 import { useFormState } from 'react-dom';
 import { twMerge as tw } from 'tailwind-merge';
 import { submit } from '../actions/contact-us';
-import Button from '@/components/atoms/Button';
+import { Button } from '@/components/atoms/Button';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 

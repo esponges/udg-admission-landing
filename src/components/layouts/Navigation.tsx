@@ -4,7 +4,7 @@ import { twMerge as tw } from 'tailwind-merge';
 import { useState } from 'react';
 import Link from 'next/link';
 
-import Button from '@/components/atoms/Button';
+import { Button } from '@/components/atoms/Button';
 
 interface MenuButton {
   toggleMenu: React.MouseEventHandler<HTMLButtonElement>;

@@ -16,7 +16,7 @@ type Props = {
   link?: string;
 };
 
-const Button = ({
+export function Button ({
   primary,
   modifier,
   children,
@@ -26,7 +26,7 @@ const Button = ({
   disabled = false,
   link,
   ...rest
-}: Props) => {
+}: Props) {
   // pending should be enabled in the child component that invokes the server action
   const { pending } = useFormStatus();
   const baseStyle = `font-sans font-medium py-2 px-4 border rounded`;
@@ -62,5 +62,3 @@ const Button = ({
     </BaseButton>
   );
 };
-
-export default Button;
