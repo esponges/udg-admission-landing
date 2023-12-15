@@ -20,9 +20,9 @@ export default function Contact() {
     howMuch: string;
     whyNot: string;
     error?: {
-      wouldPay: boolean;
-      howMuch: boolean;
-      whyNot: boolean;
+      wouldPay?: boolean;
+      howMuch?: boolean;
+      whyNot?: boolean;
     };
   }>({
     wouldPay: '',
@@ -40,6 +40,18 @@ export default function Contact() {
   }, [formStatus?.message]);
 
   const handleSubmit = (formData: FormData) => {
+    if (formValues.wouldPay === '') {
+      console.log('wouldPay is empty');
+      setFormValues({
+        ...formValues,
+        error: {
+          ...formValues.error,
+          wouldPay: true,
+        },
+      });
+      return;
+    }
+
     formAction(formData);
   };
 
