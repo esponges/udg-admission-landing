@@ -23,7 +23,7 @@ export default function Contact() {
       wouldPay: boolean;
       howMuch: boolean;
       whyNot: boolean;
-    }
+    };
   }>({
     wouldPay: '',
     howMuch: '',
@@ -39,9 +39,13 @@ export default function Contact() {
     }
   }, [formStatus?.message]);
 
+  const handleSubmit = (formData: FormData) => {
+    formAction(formData);
+  };
+
   return (
     <main>
-      <form action={formAction}>
+      <form action={handleSubmit}>
         <section className={tw('bg-white', 'pb-6')}>
           <div className={tw('mx-auto', 'p-4', 'sm:p-6', 'lg:p-8')}>
             <div
@@ -93,7 +97,8 @@ export default function Contact() {
                     }}
                   />
                 ) : null}
-                {formValues.whyNot === 'other' && formValues.wouldPay === 'no' ? (
+                {formValues.whyNot === 'other' &&
+                formValues.wouldPay === 'no' ? (
                   <div className='flex flex-col w-full'>
                     <label
                       htmlFor='whyNotOther'
