@@ -23,7 +23,7 @@ const HeroSection = () => (
   <header className={tw(`bg-white min-h-screen`)}>
     <div className={tw(`max-w-4xl mx-auto py-16 px-14 sm:px-6 lg:px-8`)}>
       <Image
-        src='/images/mockuplogo.jpg'
+        src='/images/uniprep-no-bg.jpg'
         alt='logo'
         width={300}
         height={300}
@@ -48,7 +48,7 @@ const HeroSection = () => (
         className={tw(`mt-10 flex justify-center items-center w-full mx-auto`)}
       >
         <Button link='/contacto' primary>
-          Contáctanos
+          Prueba gratis
         </Button>
       </div>
     </div>

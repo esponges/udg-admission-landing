@@ -41,13 +41,13 @@ const Footer = () => (
       <Link href='/'>
         <div className={tw(`mb-14 flex items-center w-full`)}>
           <Image
-            src='/images/mockuplogo.jpg'
+            src='/images/uniprep-no-bg.jpg'
             alt='logo'
             width={48}
             height={48}
             className={tw(`h-12 w-12 mr-4`)}
           />
-          <p className={tw(`text-4xl text-indigo-500 font-bold`)}>NERD</p>
+          <p className={tw(`text-4xl text-indigo-500 font-bold`)}>UNIPREP</p>
         </div>
       </Link>
       <div className={tw(`w-full lg:w-1/2`)}>

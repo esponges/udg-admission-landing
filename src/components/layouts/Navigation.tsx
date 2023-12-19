@@ -139,7 +139,7 @@ const Navigation = () => {
           <div className={tw(`flex items-center`)}>
             <div className={tw(`flex items-center w-full`)}>
               <Link href='/'>
-                <p className={tw(`text-4xl text-indigo-500 font-bold`)}>NERD</p>
+                <p className={tw(`text-4xl text-indigo-500 font-bold`)}>UNIPREP</p>
               </Link>
             </div>
             <div className={tw(`hidden md:block`)}>
@@ -161,7 +161,7 @@ const Navigation = () => {
           <div className={tw(`hidden md:block`)}>
             <div className={tw(`ml-4 flex items-center md:ml-6`)}>
               <Button primary link='/contacto' modifier='border-0 mr-2'>
-                Contáctanos
+                Prueba gratis
               </Button>
             </div>
           </div>
