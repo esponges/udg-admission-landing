@@ -6,22 +6,18 @@ import { twMerge as tw } from 'tailwind-merge';
 
 const socialProofs = [
   {
-    name: `John Doe`,
-    company: `Alphabet Inc.`,
-    image: `/images/social-1.webp`,
-    text: `Commodo Lorem consequat ea consectetur pariatur proident excepteur.
-    Pariatur eiusmod minim minim ipsum tempor aute excepteur minim eu nisi laboris.
-    Duis sunt labore eu eu cupidatat labore commodo id aliquip.`,
+    name: `Juanito Pérez`,
+    company: `Prepa 5`,
+    image: `/images/social-2.webp`,
+    text: `UniPrep me ayudó a resolver todas mis dudas y a practicar
+  para el examen. ¡Gracias!`,
   },
   {
-    name: `Jack Doe`,
-    company: `Amazon.com, Inc.`,
-    image: `/images/social-2.webp`,
-    text: `Anim labore ut amet cupidatat pariatur pariatur labore ad est.
-    Fugiat eiusmod dolore aliquip aute duis esse excepteur amet.
-    Sit cupidatat ipsum culpa nisi esse ipsum culpa in consectetur.
-    Enim incididunt do sunt ex do. Proident duis nulla minim sunt irure est
-    magna nostrud Lorem consectetur irure.`,
+    name: `Paco Jones`,
+    company: `Prepa 1`,
+    image: `/images/social-1.webp`,
+    text: `Con UniPrep pude practicar todos los exámenes que quise y
+    además pude resolver todas mis dudas con el chatbot. ¡Gracias!`,
   },
 ];
 
